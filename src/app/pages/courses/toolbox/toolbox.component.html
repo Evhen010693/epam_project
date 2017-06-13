@@ -1,0 +1,9 @@
+<div class="toolbox">
+	<div class="add-course-section">
+		<button>Add course</button>
+	</div>
+	<div class="toolbox-filter">
+		<input type="text" [(ngModel)]="inputValue"/>
+		<button (click)="log($event, inputValue)">Find</button>
+	</div>
+</div>

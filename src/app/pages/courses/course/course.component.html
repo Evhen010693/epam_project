@@ -1,0 +1,12 @@
+<li>
+	<div class="course-operations">
+		<button>Edit course</button>
+		<button (click)="onItemDelete(item.id)">Delete</button>
+	</div>
+	<div>
+		<span class="course-date">{{item.date | date:'medium'}}</span>
+		<h4 class="course-title">{{item.title}}</h4>
+		<span class="course-duration">{{item.duration}}min</span>
+		<p class="course-description">{{item.description}}</p>
+	</div>
+</li>

@@ -1,0 +1,8 @@
+<section>
+  <toolbox></toolbox>
+</section>
+<section>
+  <ul>
+    <course-item *ngFor="let item of courses" [item]="item" (childChanged)="logDeletedId($event)"></course-item>
+  </ul>
+</section>

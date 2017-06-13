@@ -58,6 +58,7 @@
 			true,
 			"tabs"
 		],
+		"no-tabs": 0,
 		"no-string-literal": false,
 		"no-use-before-declare": true,
 		"object-literal-sort-keys": false,

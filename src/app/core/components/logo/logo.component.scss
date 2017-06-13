@@ -1,0 +1,51 @@
+@import "../../../styles/variables/colors.scss";
+
+header{
+	border: 1px solid  blue;
+	height: 70px;
+	width: 100%;
+	position: relative;
+	background-color: $c-primary;
+	color: $white;
+}
+
+.breadcrumbs{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-left: 300px
+}
+
+.breadcrumbs ul li{
+	display: inline-block;
+	padding: 7px;
+	border-radius: 5px;
+}
+
+.breadcrumbs ul li:hover{
+	background-color:azure;
+	color: #0275d8;
+	cursor: pointer;
+}
+
+.logo {
+	float: left;
+	height: 100%;
+	margin-left: 30px;
+}
+
+.logo img {
+	height: 100%;
+}
+
+.logo-title {
+	line-height: 1;
+	font-size: 1.6rem;
+}
+
+.user-login{
+	float: right;
+	text-align: right;
+	margin-right: 30px;
+	height: 100%;
+}

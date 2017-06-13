@@ -1,29 +1,30 @@
-﻿// angular modules
+// angular modules
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-// routes
-import { routes } from './home.routes';
-
 // custom components
-import { HomeComponent } from './home.component';
-import { TodoItemComponent } from './todo-item/todo-item.component';
+import { CoursesComponent } from './courses.component';
+import { CourseComponent } from './course/course.component';
+import { ToolboxComponent } from './toolbox/toolbox.component';
 
 @NgModule({
 	declarations: [
-		HomeComponent,
-		TodoItemComponent
+		CoursesComponent,
+		CourseComponent,
+		ToolboxComponent
 	],
 	imports: [
-		routes,
 		FormsModule,
 		ReactiveFormsModule,
 		CommonModule
 	],
+	exports:[
+		CoursesComponent
+	],
 	providers: []
 })
-export class HomeModule {
+export class CoursesModule {
 	constructor() {
 	}
 }
