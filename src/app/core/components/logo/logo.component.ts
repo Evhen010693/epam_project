@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { AuthService } from '../../../services/auth/auth.service';
 
 @Component({
 	selector: 'main-logo',
@@ -10,7 +11,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
 export class LogoComponent {
 	public logoPath: string;
 
-	constructor() {
+	constructor(private auth: AuthService) {
 		this.logoPath = '././assets/img/angular-logo.png';
+	}
+
+	public logOut() {
+		this.auth.logout();
 	}
 }

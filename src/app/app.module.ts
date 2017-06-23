@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {
@@ -18,7 +19,9 @@ import {
  * Platform and Environment providers/directives/pipes
  */
 import { ENV_PROVIDERS } from './environment';
-//import { ROUTES } from './app.routes';
+
+// import { ROUTES } from './app.routes';
+
 // App is our top level component
 import { AppComponent } from './app.component';
 import { NoContentComponent } from './pages/no-content';
@@ -28,9 +31,10 @@ import { LogoModule, FooterModule } from './core/components';
 
 // Pages
 import { CoursesModule } from './pages/courses';
+import { LoginComponent } from './pages/login';
 
 // Services
-
+import { AuthService } from './services/auth';
 // Application wide providers
 
 /**
@@ -39,10 +43,12 @@ import { CoursesModule } from './pages/courses';
 @NgModule({
 	bootstrap: [AppComponent],
 	declarations: [
-		AppComponent
+		AppComponent,
+		LoginComponent
 	],
 	imports: [ // import Angular's modules
 		BrowserModule,
+		BrowserAnimationsModule,
 		FormsModule,
 		HttpModule,
 		LogoModule,
@@ -50,7 +56,8 @@ import { CoursesModule } from './pages/courses';
 		CoursesModule
 	],
 	providers: [ // expose our Services and Providers into Angular's dependency injection
-		ENV_PROVIDERS
+		ENV_PROVIDERS,
+		AuthService
 	]
 })
 export class AppModule {

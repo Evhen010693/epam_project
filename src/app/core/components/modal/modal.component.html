@@ -1,0 +1,18 @@
+<div [@dialog] *ngIf="isVisible" class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button (click)="hide()" aria-label="Close" class="dialog__close-btn">X</button>
+			<span>Confirm delete</span>
+		</div>
+		<div class="modal-body">
+			<h4>Do you really want to delete this item {{deletedId}} ?</h4>
+		</div>
+		<div class="modal-footer">
+			<div>
+				<button (click)="hide()">NO</button>
+				<button (click)="deleteCompleted(deletedId)">Yes</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div *ngIf="isVisible" class="overlay" (click)="hide()"></div>

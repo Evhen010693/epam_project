@@ -6,23 +6,28 @@ import { CommonModule } from '@angular/common';
 // custom components
 import { CoursesComponent } from './courses.component';
 import { CourseComponent } from './course/course.component';
+import { CourseService } from '../../services/courseService';
 import { ToolboxComponent } from './toolbox/toolbox.component';
+import { ModalComponent } from '../../core/components/modal';
 
 @NgModule({
 	declarations: [
 		CoursesComponent,
 		CourseComponent,
-		ToolboxComponent
+		ToolboxComponent,
+		ModalComponent
 	],
 	imports: [
 		FormsModule,
 		ReactiveFormsModule,
 		CommonModule
 	],
-	exports:[
+	exports: [
 		CoursesComponent
 	],
-	providers: []
+	providers: [
+		CourseService
+	]
 })
 export class CoursesModule {
 	constructor() {

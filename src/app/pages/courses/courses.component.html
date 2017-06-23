@@ -1,8 +1,14 @@
-<section>
-  <toolbox></toolbox>
-</section>
-<section>
-  <ul>
-    <course-item *ngFor="let item of courses" [item]="item" (childChanged)="logDeletedId($event)"></course-item>
-  </ul>
-</section>
+<div *ngIf="isDisplayPage">
+  {{isDisplayPage}}
+  <section>
+    <toolbox></toolbox>
+  </section>
+  <section>
+    <ul>
+      <course-item *ngFor="let item of courses" [item]="item" (childChanged)="showConfirmation($event)"></course-item>
+    </ul>
+  </section>
+  <section>
+    <modal (onDeleted)="deleteItem($event)"></modal>
+  </section>
+</div>

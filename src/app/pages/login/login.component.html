@@ -1,0 +1,14 @@
+<div class="box" *ngIf="!auth.loggedIn()">
+	<h1>Login</h1>
+	<div class="custom-input-group">
+		<label>Login</label>
+		<input type="email" name="login" placeholder="login" class="email" [(ngModel)]="loginValue" />
+	</div>
+	<div class="custom-input-group">
+		<label>Password</label>
+		<input type="password" name="password" placeholder="password" class="email" [(ngModel)]="passwordValue" />
+	</div>
+	<div class="custom-input-group">
+		<input class="btn" type="submit" value="Enter" (click)="login()" />
+	</div>
+</div>

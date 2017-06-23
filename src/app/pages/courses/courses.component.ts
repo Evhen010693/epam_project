@@ -1,57 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CourseItem } from '../../core/entities';
+import { COURSES } from '../../mocks';
+import { CourseService } from '../../services/courseService';
+import { AuthService } from '../../services/auth';
+import { ModalComponent } from '../../core/components/modal';
 
 @Component({
-	selector: 'courses',
+	selector: 'courses-page',
 	templateUrl: './courses.component.html',
 	styleUrls: ['./courses.component.scss']
 })
 
-export class CoursesComponent implements OnInit{
+export class CoursesComponent implements OnInit {
 	public courses: CourseItem[];
+	public isDisplayPage: boolean;
 
-	public itemToDelete: string;
+	@ViewChild(ModalComponent) private modalComponent: ModalComponent;
 
-	constructor() {
+	constructor(private courseService: CourseService, private auth: AuthService) {
+		console.log('Course constructor has worked');
 		this.courses = [];
+		this.isDisplayPage = auth.isLoggedIn();
 	}
 
-	ngOnInit(){
-		console.log("ngOnInit");
-		this.courses =[
-			new CourseItem(
-				2,
-				'Video course 2',
-				'Lorem ipsum is a pseudo-Latin text used in web design, typography, placeholder',
-				10,
-				new Date()),
-			new CourseItem(
-				3,
-				'Video course 3',
-				'Lorem ipsum is a pseudo-Latin text used in web design, typography, placeholder',
-				20,
-				new Date()),
-			new CourseItem(
-				4,
-				'Video course 4',
-				'Lorem ipsum is a pseudo-Latin text used in web design, typography, placeholder',
-				40,
-				new Date()),
-			new CourseItem(
-				5,
-				'Video course 5',
-				'Lorem ipsum is a pseudo-Latin text used in web design, typography, placeholder',
-				50,
-				new Date()),
-			new CourseItem(
-				6,
-				'Video course 6',
-				'Lorem ipsum is a pseudo-Latin text used in web design, typography, placeholder',
-				60,
-				new Date())];
+	public showConfirmation(deletedId: number) {
+		this.modalComponent.show(deletedId);
 	}
 
-	public logDeletedId(deletedId: number) {
+	public deleteItem(deletedId: number) {
 		console.log(deletedId);
+		this.courseService.remove(deletedId);
+	}
+
+	public ngOnInit() {
+		console.log('ngOnInit');
+		this.courses = COURSES;
 	}
 }
